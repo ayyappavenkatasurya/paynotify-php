@@ -1,0 +1,15 @@
+{
+    "name": "paynotify/paynotify-php",
+    "description": "Official PHP SDK for PayNotify Webhook Engine",
+    "type": "library",
+    "require": {
+        "php": ">=7.4.0",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "PayNotify\\": "src/"
+        }
+    }
+}
