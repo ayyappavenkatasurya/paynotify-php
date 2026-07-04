@@ -2,6 +2,14 @@
     "name": "paynotify/paynotify-php",
     "description": "Official PHP SDK for PayNotify Webhook Engine",
     "type": "library",
+    "license": "MIT",
+    "keywords": ["paynotify", "upi", "payment gateway", "webhook"],
+    "authors": [
+        {
+            "name": "PayNotify Developers",
+            "email": "ayyappanallamothu4@gmail.com"
+        }
+    ],
     "require": {
         "php": ">=7.4.0",
         "ext-curl": "*",
