@@ -29,15 +29,14 @@ class PayNotifyClient
      *
      * @param float $baseAmount Original payment amount
      * @param string $customerName Customer's name
-     * @param string|null $idempotencyKey Optional idempotency key
+     * @param string $idempotencyKey Required idempotency key to prevent duplicate orders
      * @return array Response from the gateway containing orderId, amount, status
      * @throws PayNotifyException
      */
-    public function createOrder(float $baseAmount, string $customerName = "Guest", ?string $idempotencyKey = null): array
+    public function createOrder(float $baseAmount, string $customerName, string $idempotencyKey): array
     {
         if (empty($idempotencyKey)) {
-            $uniqueString = $this->apiKey . '-' . $baseAmount . '-' . $customerName . '-' . microtime(true);
-            $idempotencyKey = hash('sha256', $uniqueString);
+            throw new PayNotifyException("PayNotify: idempotencyKey is strictly required to prevent duplicate orders during network retries.");
         }
 
         $payload = json_encode([
